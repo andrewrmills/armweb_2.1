@@ -80,7 +80,7 @@ export default class Font
     setMeshB()
     {
         this.mesh = new THREE.Mesh(this.geometry, this.material)
-        this.mesh.position.set(-4, -11, -25)
+        this.mesh.position.set(-4, -12, -25)
         this.scene.add(this.mesh)
     }
 

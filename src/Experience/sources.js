@@ -45,6 +45,11 @@ export default [
         path: 'models/Lander/lander.glb'
     },
     {
+        name: 'moonModel',
+        type: 'gltfModel',
+        path: 'models/Moon/moon.gltf'
+    },
+    {
         name: 'helvetiker',
         type: 'font',
         path: 'fonts/helvetiker_regular.typeface.json'

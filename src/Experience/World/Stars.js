@@ -21,8 +21,8 @@ export default class Stars
 
         for (let i = 0; i < particlesCount; i++)
         {
-            positions[i * 3 + 0] = (Math.random() - 0.5) * 50
-            positions[i * 3 + 1] = (Math.random() - 0.5) * 50
+            positions[i * 3 + 0] = (Math.random() - 0.5) * 60
+            positions[i * 3 + 1] = (Math.random() - 0.5) * 80
             positions[i * 3 + 2] = - 30 + (Math.random() - 0.5) * 10
         }
 

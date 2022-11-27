@@ -3,71 +3,69 @@ import Experience from "../Experience"
 
 export default class Floor
 {
-    constructor()
+    constructor() 
     {
         this.experience = new Experience()
         this.scene = this.experience.scene
         this.resources = this.experience.resources
+        this.time = this.experience.time
+        this.debug = this.experience.debug
+        this.sizes = this.experience.sizes
 
-        this.setGeometry()
-        this.setTextures()
-        this.setMaterial()
-        this.setMesh()
+        // Debug
+        if(this.debug.active)
+        {
+            this.debugFolder = this.debug.ui.addFolder('Moon')
+        }
+
+        // Setup
+        this.resource = this.resources.items.moonModel
+        this.params = {rotationSpeed: 0.0002}
+
+        this.setModel()
+        // this.setAnimation()
     }
 
-    setGeometry()
+    setModel()
     {
-        this.geometry = new THREE.SphereGeometry(20, 32, 16)
-    }
+        this.model = this.resource.scene
+        this.model.scale.set(6, 6, 6)
+        this.model.position.set(13, -35, -10)
+        this.model.rotation.set(1.8, 0, 0.1)
+        this.scene.add(this.model)
 
-    setTextures()
-    {
-        this.textures = {}
-
-        this.textures.color = this.resources.items.moonColorTexture
-        this.textures.color.encoding = THREE.sRGBEncoding
-        this.textures.color.repeat.set(15, 15)
-        this.textures.color.wrapS = THREE.RepeatWrapping
-        this.textures.color.wrapT = THREE.RepeatWrapping
-
-        this.textures.ambientOcclusion = this.resources.items.moonAmbientOcclusionTexture
-        this.textures.ambientOcclusion.repeat.set(15, 15)
-        this.textures.ambientOcclusion.wrapS = THREE.RepeatWrapping
-        this.textures.ambientOcclusion.wrapT = THREE.RepeatWrapping
-
-        this.textures.height = this.resources.items.moonHeightTexture
-        this.textures.height.repeat.set(15, 15)
-        this.textures.height.wrapS = THREE.RepeatWrapping
-        this.textures.height.wrapT = THREE.RepeatWrapping
-
-        this.textures.normal = this.resources.items.moonNormalTexture
-        this.textures.normal.repeat.set(15, 15)
-        this.textures.normal.wrapS = THREE.RepeatWrapping
-        this.textures.normal.wrapT = THREE.RepeatWrapping
-
-        this.textures.roughness = this.resources.items.moonRoughnessTexture
-        this.textures.roughness.repeat.set(15, 15)
-        this.textures.roughness.wrapS = THREE.RepeatWrapping
-        this.textures.roughness.wrapT = THREE.RepeatWrapping
-    }
-
-    setMaterial()
-    {
-        this.material = new THREE.MeshStandardMaterial({
-            map: this.textures.color,
-            aoMap: this.textures.ambientOcclusion,
-            // displacementMap: this.textures.height,
-            normalMap: this.textures.normal,
-            roughnessMap: this.textures.roughness
+        this.model.traverse((child) => 
+        {
+            if(child instanceof THREE.Mesh)
+            {
+                child.castShadow = true
+                child.receiveShadow = true
+            }
         })
-    }
 
-    setMesh()
-    {
-        this.mesh = new THREE.Mesh(this.geometry, this.material)
-        this.mesh.position.set(0, -40, -30)
-        this.mesh.receiveShadow = true
-        this.scene.add(this.mesh)
-    }
+        // Debug
+        if(this.debug.active)
+        {
+        this.debugFolder
+        .add(this.model.rotation, 'x')
+        .name('landerRotationX')
+        .min(0)
+        .max(Math.PI * 2)
+        .step(0.001)
 
+        this.debugFolder
+        .add(this.model.rotation, 'y')
+        .name('landerRotationY')
+        .min(0)
+        .max(Math.PI * 2)
+        .step(0.001)
+
+        this.debugFolder
+        .add(this.model.rotation, 'z')
+        .name('landerRotationZ')
+        .min(0)
+        .max(Math.PI * 2)
+        .step(0.001)
+        }
+    }
 }

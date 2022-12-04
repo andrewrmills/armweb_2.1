@@ -80,10 +80,10 @@ export default class Lander
         this.resource.scene.position.z = t * 1.5
         this.resource.scene.position.y = t * 5
 
-        if(this.resource.scene.position.y < -19)
+        if(this.resource.scene.position.y < -19.7)
         {
-            this.resource.scene.position.y = -19
-            this.resource.scene.position.z = -5.7
+            this.resource.scene.position.y = -19.7
+            this.resource.scene.position.z = -5.8
         }
 
         // console.log('y', this.resource.scene.position.y)

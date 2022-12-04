@@ -47,7 +47,7 @@ export default [
     {
         name: 'moonModel',
         type: 'gltfModel',
-        path: 'models/Moon/moon.gltf'
+        path: 'models/Moon/moon.glb'
     },
     {
         name: 'helvetiker',

@@ -37,6 +37,7 @@ export default class Lander
             if(child instanceof THREE.Mesh)
             {
                 child.castShadow = true
+                child.material.side = THREE.DoubleSide
             }
         })
 
@@ -77,18 +78,22 @@ export default class Lander
     {
         const t = document.body.getBoundingClientRect().top/this.sizes.height
         this.resource.scene.position.z = t * 1.5
-        this.resource.scene.position.y = t * 4
-        if(this.resource.scene.position.y < -12)
+        this.resource.scene.position.y = t * 5
+
+        if(this.resource.scene.position.y < -19)
         {
-            this.resource.scene.position.y = -12
-            this.resource.scene.position.z = -4.5
+            this.resource.scene.position.y = -19
+            this.resource.scene.position.z = -5.7
         }
+
+        // console.log('y', this.resource.scene.position.y)
+        // console.log('z', this.resource.scene.position.z)
     }
 
     update() 
     {
         this.resource.scene.rotation.y += this.time.delta * this.params.rotationSpeed
-        if(this.resource.scene.position.y < -5)
+        if(this.resource.scene.position.y < -15)
         {
             this.params.rotationSpeed = 0
         }

@@ -31,11 +31,11 @@ export default class Camera
             this.scene.add(this.instance)
     }
 
-    // setOrbitControls() 
-    // {
-    //     this.controls = new OrbitControls(this.instance, this.canvas)
-    //     this.controls.enableDamping = true
-    // }
+    setOrbitControls() 
+    {
+        this.controls = new OrbitControls(this.instance, this.canvas)
+        this.controls.enableDamping = true
+    }
 
     resize() 
     {
@@ -48,6 +48,5 @@ export default class Camera
         // this.controls.update()
         this.instance.lookAt(object)   
         this.instance.position.y = window.scrollY/this.sizes.height * 4
-        // console.log('camera', this.instance.position.y)
     }
 }

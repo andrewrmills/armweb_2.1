@@ -50,6 +50,7 @@ export default class Font
     {
         this.mesh = new THREE.Mesh(this.geometry, this.material)
         this.mesh.position.set(-10, -5, -25)
+        this.mesh.rotation.y = 0.075
         this.scene.add(this.mesh)
     }
 
@@ -81,6 +82,7 @@ export default class Font
     {
         this.mesh = new THREE.Mesh(this.geometry, this.material)
         this.mesh.position.set(-4, -12, -25)
+        this.mesh.rotation.y = 0.075
         this.scene.add(this.mesh)
     }
 

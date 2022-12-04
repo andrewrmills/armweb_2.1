@@ -20,7 +20,7 @@ export default class Floor
 
         // Setup
         this.resource = this.resources.items.moonModel
-        this.params = {rotationSpeed: 0.0002}
+        this.params = {rotationSpeed: -0.00002}
 
         this.setModel()
         // this.setAnimation()
@@ -30,8 +30,8 @@ export default class Floor
     {
         this.model = this.resource.scene
         this.model.scale.set(6, 6, 6)
-        this.model.position.set(13, -35, -10)
-        this.model.rotation.set(1.8, 0, 0.1)
+        this.model.position.set(0, -35, -10)
+        this.model.rotation.set(1.8, -3.4, 1)
         this.scene.add(this.model)
 
         this.model.traverse((child) => 
@@ -48,24 +48,42 @@ export default class Floor
         {
         this.debugFolder
         .add(this.model.rotation, 'x')
-        .name('landerRotationX')
+        .name('moonRotationX')
         .min(0)
         .max(Math.PI * 2)
         .step(0.001)
 
         this.debugFolder
         .add(this.model.rotation, 'y')
-        .name('landerRotationY')
+        .name('moonRotationY')
         .min(0)
         .max(Math.PI * 2)
         .step(0.001)
 
         this.debugFolder
         .add(this.model.rotation, 'z')
-        .name('landerRotationZ')
+        .name('moonRotationZ')
         .min(0)
         .max(Math.PI * 2)
         .step(0.001)
         }
+    }
+
+    update() 
+    {
+        // this.resource.scene.rotation.y += this.time.delta * this.params.rotationSpeed
+
+        // //Camera
+        // if(this.experience.scene.children[0].position.y > 15)
+        // {
+        //     this.params.rotationSpeed = 0
+        // }
+        // else
+        // {
+        //     this.params.rotationSpeed = -0.00002
+        // }
+
+        const t = document.body.getBoundingClientRect().top/this.sizes.height
+        this.resource.scene.rotation.y = -3.4 - t * 0.1
     }
 }

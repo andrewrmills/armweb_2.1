@@ -43,10 +43,10 @@ export default class Camera
         this.instance.updateProjectionMatrix()
     }
 
-    update(object) 
+    update() 
     {
         // this.controls.update()
-        this.instance.lookAt(object)   
+        this.instance.lookAt(this.experience.world.scene.children[1].position)   
         this.instance.position.y = window.scrollY/this.sizes.height * 4
     }
 }

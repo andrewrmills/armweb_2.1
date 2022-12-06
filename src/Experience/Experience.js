@@ -58,7 +58,8 @@ export default class Experience
     {
         if(this.world.lander)
         {
-        this.camera.update(this.world.lander.scene.position)
+            this.camera.update()
+            // this.camera.update(this.world.lander.scene.position)
         }
         this.world.update()
         this.renderer.update()

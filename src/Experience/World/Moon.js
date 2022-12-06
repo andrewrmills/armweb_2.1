@@ -31,7 +31,7 @@ export default class Floor
         this.model = this.resource.scene
         this.model.scale.set(6, 6, 6)
         this.model.position.set(0, -35, -10)
-        this.model.rotation.set(1.8, -3.4, 1)
+        this.model.rotation.set(2, -3.4, 1)
         this.scene.add(this.model)
 
         this.model.traverse((child) => 

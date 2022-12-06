@@ -13,13 +13,30 @@ export default class Font
         // Setup
         this.resource = this.resources.items.helvetiker
 
-        this.setGeometryA()
-        this.setMaterialA()
-        this.setMeshA()
+        if(this.experience.sizes.height > this.experience.sizes.width)
+        {
+            this.setGeometryAMobile()
+            this.setMaterialAMobile()
+            this.setMeshAMobile()
 
-        this.setGeometryB()
-        this.setMaterialB()
-        this.setMeshB()
+            this.setGeometryBMobile()
+            this.setMaterialBMobile()
+            this.setMeshBMobile()
+
+            this.setGeometryCMobile()
+            this.setMaterialCMobile()
+            this.setMeshCMobile()
+        }
+        else
+        {
+            this.setGeometryA()
+            this.setMaterialA()
+            this.setMeshA()
+    
+            this.setGeometryB()
+            this.setMaterialB()
+            this.setMeshB()
+        }
     }
     
     setGeometryA()
@@ -86,5 +103,99 @@ export default class Font
         this.scene.add(this.mesh)
     }
 
+    setGeometryAMobile()
+    {
+        this.geometry = new TextGeometry(
+            'Andrew Mills',
+            {
+                font: this.resource,
+                size: 1,
+                height: 0.2,
+                curveSegments: 5,
+                bevelEnabled: true,
+                bevelThickness: 0.03,
+                bevelSize: 0.02,
+                bevelOffset: 0,
+                bevelSegments: 4
+            }
+        )
+        this.geometry.center()
+    }
+    setMaterialAMobile()
+    {
+        this.material = new THREE.MeshNormalMaterial({
+        })
+    }
 
+    setMeshAMobile()
+    {
+        this.mesh = new THREE.Mesh(this.geometry, this.material)
+        this.mesh.position.set(-1.75, -5, -25)
+        this.mesh.rotation.y = 0.075
+        this.scene.add(this.mesh)
+    }
+
+    setGeometryBMobile()
+    {
+        this.geometry = new TextGeometry(
+            'Developer. Pipe Dreamer.',
+            {
+                font: this.resource,
+                size: 0.5,
+                height: 0.2,
+                curveSegments: 5,
+                bevelEnabled: true,
+                bevelThickness: 0.03,
+                bevelSize: 0.02,
+                bevelOffset: 0,
+                bevelSegments: 4
+            }
+        )
+        this.geometry.center()
+    }
+    setMaterialBMobile()
+    {
+        this.material = new THREE.MeshNormalMaterial({
+        })
+    }
+
+    setMeshBMobile()
+    {
+        this.mesh = new THREE.Mesh(this.geometry, this.material)
+        this.mesh.position.set(-1.3, -11, -25)
+        this.mesh.rotation.y = 0.075
+        this.scene.add(this.mesh)
+    }
+
+    setGeometryCMobile()
+    {
+        this.geometry = new TextGeometry(
+            'All Round Nice Guy.',
+            {
+                font: this.resource,
+                size: 0.5,
+                height: 0.2,
+                curveSegments: 5,
+                bevelEnabled: true,
+                bevelThickness: 0.03,
+                bevelSize: 0.02,
+                bevelOffset: 0,
+                bevelSegments: 4
+            }
+        )
+        this.geometry.center()
+    }
+    setMaterialCMobile()
+    {
+        this.material = new THREE.MeshNormalMaterial({
+        })
+    }
+
+    setMeshCMobile()
+    {
+        this.mesh = new THREE.Mesh(this.geometry, this.material)
+        this.mesh.position.set(-1.3, -12, -25)
+        this.mesh.rotation.y = 0.075
+        this.scene.add(this.mesh)
+    }
 }

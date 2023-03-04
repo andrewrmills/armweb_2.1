@@ -1,5 +1,10 @@
 import EventEmitter from './EventEmitter.js'
 import Experience from '../Experience.js'
+import Stats from 'stats.js'
+
+// const stats =  new Stats()
+// stats.showPanel(0)
+// document.body.appendChild(stats.dom)
 
 export default class Time extends EventEmitter 
 {
@@ -21,6 +26,8 @@ export default class Time extends EventEmitter
 
     tick()
     {
+        // stats.begin()
+
         const currentTime = Date.now()
         this.delta = currentTime - this.current
         this.current = currentTime
@@ -32,5 +39,7 @@ export default class Time extends EventEmitter
         {
             this.tick()
         })
+
+        // stats.end()
     }
 }

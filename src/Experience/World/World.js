@@ -2,7 +2,6 @@ import Experience from '../Experience.js'
 import Environment from './Environment.js'
 import Moon from './Moon.js'
 import Lander from './Lander.js'
-import Stars from './Stars.js'
 import Font from './Font.js'
 
 export default class World
@@ -20,7 +19,6 @@ export default class World
             // Setup
             this.lander = new Lander()
             this.moon = new Moon()
-            this.stars = new Stars()
             this.font = new Font()
             this.environment = new Environment()
         })

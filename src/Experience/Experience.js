@@ -36,6 +36,10 @@ export default class Experience
         this.renderer = new Renderer()
         this.world = new World()
 
+        // Rotate scene so earth appears in background
+        this.scene.rotateY(-(Math.PI /2.5))
+        this.scene.rotateX(-0.2)
+
         // Sizes resize event
         this.sizes.on('resize', () => 
         {
@@ -59,45 +63,45 @@ export default class Experience
         if(this.world.lander)
         {
             this.camera.update()
-            // this.camera.update(this.world.lander.scene.position)
         }
         this.world.update()
         this.renderer.update()
     }
 
-    destroy()
-    {
-        this.sizes.off('resize')
-        this.time.off('tick')
+    // destroy()
+    // {
+    //     this.sizes.off('resize')
+    //     this.time.off('tick')
 
-        // Traverse whole scene
-        this.scene.traverse((child) => 
-        {
-            // Test if it's a mesh
-            if(child instanceof THREE.Mesh)
-            {
-                child.geometry.dispose()
+    //     // Traverse whole scene
+    //     this.scene.traverse((child) => 
+    //     {
+    //         // Test if it's a mesh
+    //         if(child instanceof THREE.Mesh)
+    //         {
+    //             child.geometry.dispose()
 
-                // Loop through the material properties
-                for(const key in child.material)
-                {
-                    const value = child.material[key]
+    //             // Loop through the material properties
+    //             for(const key in child.material)
+    //             {
+    //                 const value = child.material[key]
 
-                    // Test if there is a dispose function
-                    if(value && typeof value.dispose === 'function')
-                    {
-                        value.dispose()
-                    }
-                }
-            }
-        })
+    //                 // Test if there is a dispose function
+    //                 if(value && typeof value.dispose === 'function')
+    //                 {
+    //                     value.dispose()
+    //                 }
+    //             }
+    //         }
+    //     })
 
-        this.camera.controls.dispose()
-        this.renderer.instance.dispose()
-        if(this.debug.active)
-        {
-            this.debug.ui.destroy()
-        }
-    }
+    //     this.camera.controls.dispose()
+    //     this.renderer.instance.dispose()
+    //     if(this.debug.active)
+    //     {
+    //         this.debug.ui.destroy()
+    //     }
+    // }
 }
+
 

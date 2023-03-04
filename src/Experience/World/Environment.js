@@ -18,7 +18,7 @@ export default class Environment
 
         this.setSunLight()
         this.setAmbientLight()
-        // this.setEnvironmentMap()
+        this.setEnvironmentMap()
     }
 
     setSunLight()
@@ -90,8 +90,15 @@ export default class Environment
                         }
     }
 
+    setEnvironmentMap()
+    {
+        this.environmentMap = {}
+        this.environmentMap.texture = this.resources.items.environmentHdrTexture
+        this.environmentMap.texture.mapping = THREE.EquirectangularReflectionMapping
 
+        this.scene.background = this.environmentMap.texture
 
+    }
     // setEnvironmentMap()
     // {
     //     this.environmentMap = {}

@@ -27,8 +27,14 @@ export default class Camera
             // Far
             100
             )
-            this.instance.position.set(0.5, 2, 8)
-            this.scene.add(this.instance)
+        this.instance.position.set(0.5, 2, 8)
+        // this.instance.position.set(-10, 0.5, 8)
+        this.scene.add(this.instance)
+
+        // Leave this here!
+        // For some reason the axis get thown off without it
+        this.axisHelper = new THREE.AxesHelper(0)
+        this.scene.add(this.axisHelper)
     }
 
     setOrbitControls() 

@@ -2,17 +2,9 @@
 
 export default [
     {
-        name: 'environmentMapTexture',
-        type: 'cubeTexture',
-        path:
-        [
-            'textures/environmentMap/px.jpg',
-            'textures/environmentMap/nx.jpg',
-            'textures/environmentMap/py.jpg',
-            'textures/environmentMap/ny.jpg',
-            'textures/environmentMap/pz.jpg',
-            'textures/environmentMap/nz.jpg',
-        ]
+        name: 'environmentHdrTexture',
+        type: 'RGBEtexture',
+        path: 'textures/environmentMap/hdr.hdr'
     },
     {
         name: 'moonColorTexture',
@@ -47,7 +39,7 @@ export default [
     {
         name: 'moonModel',
         type: 'gltfModel',
-        path: 'models/Moon/moon.glb'
+        path: 'models/Moon/moon.gltf'
     },
     {
         name: 'helvetiker',

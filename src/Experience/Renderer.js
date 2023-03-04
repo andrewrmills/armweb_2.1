@@ -26,12 +26,13 @@ export default class renderer
         this.instance = new THREE.WebGLRenderer(
             {
                 canvas: this.canvas,
-                antialias: true
+                // powerPreference: 'high-performance',
+                // antialias: true
             })
             this.instance.physicallyCorrectLights = true
             this.instance.outputEncoding = THREE.sRGBEncoding
-            this.instance.toneMapping = THREE.CineonToneMapping
-            this.instance.toneMappingExposure = 1.75
+            this.instance.toneMapping = THREE.ReinhardToneMapping
+            this.instance.toneMappingExposure = 1
             this.instance.shadowMap.enabled = true
             this.instance.shadowMap.type = THREE.PCFSoftShadowMap
             this.instance.setClearColor('#211d20')
@@ -56,6 +57,9 @@ export default class renderer
                 .max(10)
                 .step(0.001)
             }
+
+            // Renderer Information
+            // console.log (this.instance.info)
     }
 
     resize()
@@ -69,3 +73,6 @@ export default class renderer
         this.instance.render(this.scene, this.camera.instance)
     }
 }
+
+
+

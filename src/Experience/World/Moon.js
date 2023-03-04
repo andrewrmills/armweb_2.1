@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import Experience from "../Experience"
 
-export default class Floor
+export default class Moon
 {
     constructor() 
     {

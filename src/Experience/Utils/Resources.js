@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
+import {RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js'
 import EventEmitter from './EventEmitter.js'
 
 export default class Resources extends EventEmitter 
@@ -32,6 +33,7 @@ export default class Resources extends EventEmitter
         this.loaders.textureLoader = new THREE.TextureLoader()
         this.loaders.cubeTextureLoader = new THREE.CubeTextureLoader()
         this.loaders.fontLoader = new FontLoader()
+        this.loaders.rgbeLoader = new RGBELoader()
     }
 
     startLoading()
@@ -82,6 +84,16 @@ export default class Resources extends EventEmitter
             else if(source.type === 'font')
             {
                 this.loaders.fontLoader.load(
+                    source.path,
+                    (file) =>
+                    {
+                        this.sourceLoaded(source, file)
+                    }
+                )
+            }
+            else if(source.type === 'RGBEtexture')
+            {
+                this.loaders.rgbeLoader.load(
                     source.path,
                     (file) =>
                     {

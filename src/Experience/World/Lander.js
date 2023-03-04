@@ -30,6 +30,7 @@ export default class Lander
     {
         this.model = this.resource.scene
         this.model.scale.set(0.3, 0.3, 0.3)
+        // this.model.position.set(0.3, 0.3, 0.3)
         this.scene.add(this.model)
 
         this.model.traverse((child) => 
@@ -44,33 +45,33 @@ export default class Lander
         // Debug
         if(this.debug.active)
         {
-        this.debugFolder
-        .add(this.model.rotation, 'x')
-        .name('landerRotationX')
-        .min(0)
-        .max(Math.PI * 2)
-        .step(0.001)
+            this.debugFolder
+            .add(this.model.rotation, 'x')
+            .name('landerRotationX')
+            .min(0)
+            .max(Math.PI * 2)
+            .step(0.001)
 
-        this.debugFolder
-        .add(this.model.rotation, 'y')
-        .name('landerRotationY')
-        .min(0)
-        .max(Math.PI * 2)
-        .step(0.001)
+            this.debugFolder
+            .add(this.model.rotation, 'y')
+            .name('landerRotationY')
+            .min(0)
+            .max(Math.PI * 2)
+            .step(0.001)
 
-        this.debugFolder
-        .add(this.model.rotation, 'z')
-        .name('landerRotationZ')
-        .min(0)
-        .max(Math.PI * 2)
-        .step(0.001)
+            this.debugFolder
+            .add(this.model.rotation, 'z')
+            .name('landerRotationZ')
+            .min(0)
+            .max(Math.PI * 2)
+            .step(0.001)
 
-        this.debugFolder
-        .add(this.params, 'rotationSpeed')
-        .name('landerRotationSpeed')
-        .min(0)
-        .max(0.01)
-        .step(0.0001)
+            this.debugFolder
+            .add(this.params, 'rotationSpeed')
+            .name('landerRotationSpeed')
+            .min(0)
+            .max(0.01)
+            .step(0.0001)
         }
     }
 

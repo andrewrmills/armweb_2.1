@@ -3,6 +3,7 @@ import Environment from './Environment.js'
 import Moon from './Moon.js'
 import Lander from './Lander.js'
 import Font from './Font.js'
+import Cloud from './Cloud.js'
 
 export default class World
 {
@@ -22,6 +23,7 @@ export default class World
             this.lander = new Lander()
             this.moon = new Moon()
             this.font = new Font()
+            // this.cloud = new Cloud()
             this.environment = new Environment()
         })
     }

@@ -45,5 +45,10 @@ export default [
         name: 'helvetiker',
         type: 'font',
         path: 'fonts/helvetiker_regular.typeface.json'
+    },
+    {
+        name: 'cloud',
+        type: 'texture',
+        path: 'textures/cloud/cloud.png'
     }
 ]

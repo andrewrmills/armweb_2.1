@@ -158,7 +158,7 @@ export default class Resources extends EventEmitter
                 this.spacemanElement.classList.add('ended')
                 this.loadingTextElement.classList.add('ended')
                 this.loadingBarElement.style.transform = ``
-                document.body.style.overflow = 'visible'
+                // document.body.style.overflow = 'visible'
             })
         }
     }

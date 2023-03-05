@@ -10,6 +10,7 @@ export default class Camera
         this.sizes = this.experience.sizes
         this.scene = this.experience.scene
         this.canvas = this.experience.canvas
+        // this.flag = 0
 
         this.setInstance()
         // this.setOrbitControls()
@@ -52,7 +53,20 @@ export default class Camera
     update() 
     {
         // this.controls.update()
+
+        // if(this.instance.position.y < 15.98)
+        // {
         this.instance.lookAt(this.experience.world.scene.children[1].position)   
         this.instance.position.y = window.scrollY/this.sizes.height * 4
+        // }
+        // else if (this.flag = 0)
+        // {
+        //     this.setOrbitControls()
+        //     this.flag = 1
+        // }
+        // else
+        // {
+        //     this.controls.update()
+        // }
     }
 }

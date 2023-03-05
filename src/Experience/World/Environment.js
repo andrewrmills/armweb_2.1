@@ -28,13 +28,14 @@ export default class Environment
         this.sunLight.shadow.camera.near = 5
         this.sunLight.shadow.camera.far = 25
         this.sunLight.shadow.camera.top = 0
-        this.sunLight.shadow.camera.right = 5
+        this.sunLight.shadow.camera.right = 3
         this.sunLight.shadow.camera.bottom = - 4
         this.sunLight.shadow.camera.left = - 2
         this.sunLight.shadow.mapSize.set(1024, 1024)
         this.sunLight.shadow.normalBias = 0.05
-        this.sunLight.position.set(0.2, 0.7, 0.2)
+        this.sunLight.position.set(0.2, 1, 0.2)
 
+        // Shadow Helper
         // this.sunLightCameraHelper = new THREE.CameraHelper(this.sunLight.shadow.camera)
         // this.scene.add(this.sunLightCameraHelper)
 

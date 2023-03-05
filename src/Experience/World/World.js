@@ -13,6 +13,8 @@ export default class World
         this.resources = this.experience.resources
         this.camera = this.experience.camera
 
+        this.resources.overlay(this.scene)
+
         // Wait for resources
         this.resources.on('ready', () =>
         {

@@ -4,6 +4,7 @@ import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 import {RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js'
 import EventEmitter from './EventEmitter.js'
+import { gsap } from 'gsap'
 
 export default class Resources extends EventEmitter 
 {
@@ -18,9 +19,40 @@ export default class Resources extends EventEmitter
         this.items = {}
         this.toLoad = this.sources.length
         this.loaded = 0
+        this.loadingBarElement = document.querySelector('.loading-bar')
+        this.spacemanElement = document.querySelector('.spaceman')
+        this.loadingTextElement = document.querySelector('.loading-text')
+
+        this.overlayGeometry = new THREE.PlaneGeometry(2,2,1,1)
+        this.overlayMaterial = new THREE.ShaderMaterial({
+        transparent: true,
+        uniforms: {
+            uAlpha: { value: 1}
+        },
+        vertexShader: `
+            void main()
+            {
+                gl_Position = vec4(position, 1.0);
+            }
+        `,
+        fragmentShader: `
+            uniform float uAlpha;
+
+            void main()
+            {
+                gl_FragColor = vec4(0.0, 0.0, 0.0, uAlpha);
+            }
+        `
+    })
 
         this.setLoaders()
         this.startLoading()
+    }
+
+    overlay(scene)
+    {        
+    const overlay = new THREE.Mesh(this.overlayGeometry, this.overlayMaterial)
+    scene.add(overlay)
     }
 
     setLoaders()
@@ -110,9 +142,24 @@ export default class Resources extends EventEmitter
 
         this.loaded++
 
+        const progressRatio = this.loaded / this.toLoad
+        const progressPercent = Math.floor(progressRatio * 100)
+        this.loadingBarElement.style.transform = `scaleX(${progressRatio})`
+        this.loadingTextElement.textContent = `Loading ${progressPercent}%`
+
         if(this.loaded === this.toLoad)
         {
             this.trigger('ready')
+
+            gsap.delayedCall(0.5, () =>
+            {
+                gsap.to(this.overlayMaterial.uniforms.uAlpha, { duration: 3, value: 0})
+                this.loadingBarElement.classList.add('ended')
+                this.spacemanElement.classList.add('ended')
+                this.loadingTextElement.classList.add('ended')
+                this.loadingBarElement.style.transform = ``
+                document.body.style.overflow = 'visible'
+            })
         }
     }
 }

@@ -34,21 +34,21 @@ export default class Camera
 
     }
 
-    setOrbitinstance()
-    {
-        this.orbitInstance = new THREE.PerspectiveCamera(
-            // FOV
-            35,
-            // Aspect
-            this.sizes.width / this.sizes.height,
-            // Near
-            0.1,
-            // Far
-            100
-            )
-        this.orbitInstance.position.set(0.5, 2, 8)
-        this.scene.add(this.orbitInstance)
-    }
+    // setOrbitinstance()
+    // {
+    //     this.orbitInstance = new THREE.PerspectiveCamera(
+    //         // FOV
+    //         35,
+    //         // Aspect
+    //         this.sizes.width / this.sizes.height,
+    //         // Near
+    //         0.1,
+    //         // Far
+    //         100
+    //         )
+    //     this.orbitInstance.position.set(0.5, 2, 8)
+    //     this.scene.add(this.orbitInstance)
+    // }
 
     setOrbitControls() 
     {

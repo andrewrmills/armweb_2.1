@@ -66,17 +66,17 @@ export default class Camera
     {
         // if(this.instance.position.y < 15.98)
         // {
-        this.instance.lookAt(this.experience.world.scene.children[1].position)   
-        this.instance.position.y = window.scrollY/this.sizes.height * 4
+            this.instance.lookAt(this.experience.world.scene.children[1].position)   
+            this.instance.position.y = window.scrollY/this.sizes.height * 4
         // }
         // else if (this.flag === 1)
         // {
-            // console.log(this.instance)
-            // this.setOrbitinstance()
-            // this.setOrbitControls()
-            // this.flag = 0
-            // console.log(this.orbitInstance)
-            // console.log(this.scene)
+        //     console.log(this.instance)
+        //     this.setOrbitinstance()
+        //     this.setOrbitControls()
+        //     this.flag = 0
+        //     console.log(this.orbitInstance)
+        //     console.log(this.scene)
         // }
         // else
         // {

@@ -10,7 +10,7 @@ export default class Camera
         this.sizes = this.experience.sizes
         this.scene = this.experience.scene
         this.canvas = this.experience.canvas
-        // this.flag = 0
+        this.flag = 1
 
         this.setInstance()
         // this.setOrbitControls()
@@ -32,15 +32,27 @@ export default class Camera
         // this.instance.position.set(-10, 0.5, 8)
         this.scene.add(this.instance)
 
-        // Leave this here!
-        // For some reason the axis get thown off without it
-        this.axisHelper = new THREE.AxesHelper(0)
-        this.scene.add(this.axisHelper)
+    }
+
+    setOrbitinstance()
+    {
+        this.orbitInstance = new THREE.PerspectiveCamera(
+            // FOV
+            35,
+            // Aspect
+            this.sizes.width / this.sizes.height,
+            // Near
+            0.1,
+            // Far
+            100
+            )
+        this.orbitInstance.position.set(0.5, 2, 8)
+        this.scene.add(this.orbitInstance)
     }
 
     setOrbitControls() 
     {
-        this.controls = new OrbitControls(this.instance, this.canvas)
+        this.controls = new OrbitControls(this.orbitInstance, this.canvas)
         this.controls.enableDamping = true
     }
 
@@ -52,17 +64,19 @@ export default class Camera
 
     update() 
     {
-        // this.controls.update()
-
         // if(this.instance.position.y < 15.98)
         // {
         this.instance.lookAt(this.experience.world.scene.children[1].position)   
         this.instance.position.y = window.scrollY/this.sizes.height * 4
         // }
-        // else if (this.flag = 0)
+        // else if (this.flag === 1)
         // {
+        //     console.log(this.instance)
+        //     this.setOrbitinstance()
         //     this.setOrbitControls()
-        //     this.flag = 1
+        //     this.flag = 0
+        //     console.log(this.orbitInstance)
+        //     console.log(this.scene)
         // }
         // else
         // {

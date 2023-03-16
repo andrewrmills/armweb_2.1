@@ -34,27 +34,12 @@ export default class Camera
 
     }
 
-    // setOrbitinstance()
+    // setOrbitControls() 
     // {
-    //     this.orbitInstance = new THREE.PerspectiveCamera(
-    //         // FOV
-    //         35,
-    //         // Aspect
-    //         this.sizes.width / this.sizes.height,
-    //         // Near
-    //         0.1,
-    //         // Far
-    //         100
-    //         )
-    //     this.orbitInstance.position.set(0.5, 2, 8)
-    //     this.scene.add(this.orbitInstance)
+    //     this.controls = new OrbitControls(this.instance, this.canvas)
+    //     this.controls.enableDamping = true
+    //     this.controls.enabled = false
     // }
-
-    setOrbitControls() 
-    {
-        this.controls = new OrbitControls(this.orbitInstance, this.canvas)
-        this.controls.enableDamping = true
-    }
 
     resize() 
     {
@@ -71,16 +56,14 @@ export default class Camera
         // }
         // else if (this.flag === 1)
         // {
-        //     console.log(this.instance)
-        //     this.setOrbitinstance()
-        //     this.setOrbitControls()
+        //     this.controls.target = new THREE.Vector3(0, -19.7, -5.8)
+        //     this.controls.enabled = true
         //     this.flag = 0
-        //     console.log(this.orbitInstance)
-        //     console.log(this.scene)
         // }
         // else
         // {
         //     this.controls.update()
+        //     console.log(this.controls)
         // }
     }
 }

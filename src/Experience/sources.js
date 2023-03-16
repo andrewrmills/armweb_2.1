@@ -37,6 +37,11 @@ export default [
         path: 'models/Lander/lander.glb'
     },
     {
+        name: 'sevModel',
+        type: 'gltfModel',
+        path: 'models/Sev/sev.glb'
+    },
+    {
         name: 'moonModel',
         type: 'gltfModel',
         path: 'models/Moon/moon.gltf'
@@ -50,5 +55,5 @@ export default [
         name: 'cloud',
         type: 'texture',
         path: 'textures/cloud/cloud.png'
-    }
+    },
 ]

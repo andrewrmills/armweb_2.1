@@ -50,6 +50,5 @@ export default class Cloud
             // this.mesh.lookAt(0, 0, 0)
             this.scene.add(this.mesh)
         }
-        console.log(this.mesh)
     }
 }

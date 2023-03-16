@@ -81,11 +81,11 @@ export default class Lander
         this.resource.scene.position.z = t * 1.5
         this.resource.scene.position.y = t * 5
 
-        if(this.resource.scene.position.y < -19.7)
-        {
-            this.resource.scene.position.y = -19.7
-            this.resource.scene.position.z = -5.8
-        }
+        // if(this.resource.scene.position.y < -19.7)
+        // {
+        //     this.resource.scene.position.y = -19.7
+        //     this.resource.scene.position.z = -5.8
+        // }
 
         // console.log('y', this.resource.scene.position.y)
         // console.log('z', this.resource.scene.position.z)
@@ -93,15 +93,17 @@ export default class Lander
 
     update() 
     {
+
         this.resource.scene.rotation.y += this.time.delta * this.params.rotationSpeed
         if(this.resource.scene.position.y < -15)
         {
-            this.params.rotationSpeed = 0
+             this.params.rotationSpeed = 0
         }
         else
         {
             this.params.rotationSpeed = 0.0002
         }
         this.moveModel()
+
     }
 }

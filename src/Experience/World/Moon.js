@@ -29,9 +29,9 @@ export default class Moon
     setModel()
     {
         this.model = this.resource.scene
-        this.model.scale.set(6, 6, 6)
-        this.model.position.set(0, -35, -10)
-        this.model.rotation.set(2, -3.4, 1)
+        this.model.scale.set(11, 11, 10)
+        this.model.position.set(-1.8, -46.3, -10)
+        this.model.rotation.set(2, -3, 1)
         this.scene.add(this.model)
 
         this.model.traverse((child) => 
@@ -65,6 +65,48 @@ export default class Moon
         .min(0)
         .max(Math.PI * 2)
         .step(0.001)
+
+        this.debugFolder
+        .add(this.model.position, 'x')
+        .name('moonPositionX')
+        .min(-50)
+        .max(50)
+        .step(0.01)
+
+        this.debugFolder
+        .add(this.model.position, 'y')
+        .name('moonPositionY')
+        .min(-50)
+        .max(50)
+        .step(0.01)
+
+        this.debugFolder
+        .add(this.model.position, 'z')
+        .name('moonPositionZ')
+        .min(-50)
+        .max(50)
+        .step(0.01)
+
+        this.debugFolder
+        .add(this.model.scale, 'x')
+        .name('moonScaleX')
+        .min(0)
+        .max(20)
+        .step(0.01)
+
+        this.debugFolder
+        .add(this.model.scale, 'y')
+        .name('moonScaleY')
+        .min(0)
+        .max(20)
+        .step(0.01)
+
+        this.debugFolder
+        .add(this.model.scale, 'z')
+        .name('moonScaleZ')
+        .min(0)
+        .max(20)
+        .step(0.01)
         }
     }
 
@@ -82,7 +124,8 @@ export default class Moon
         //     this.params.rotationSpeed = -0.00002
         // }
 
-        const t = document.body.getBoundingClientRect().top/this.sizes.height
-        this.resource.scene.rotation.y = -3.4 - t * 0.1
+        // const t = document.body.getBoundingClientRect().top/this.sizes.height
+        // this.resource.scene.rotation.y = -3.4 - t * 0.1
+
     }
 }

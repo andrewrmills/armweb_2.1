@@ -4,7 +4,9 @@ import Moon from './Moon.js'
 import Lander from './Lander.js'
 import Sev from './Sev.js'
 import Font from './Font.js'
-import Cloud from './Cloud.js'
+import Gantry from './Gantry.js'
+import HSU from './HSU.js'
+import Z2 from './Z2.js'
 
 export default class World
 {
@@ -25,7 +27,9 @@ export default class World
             this.sev = new Sev()
             this.moon = new Moon()
             this.font = new Font()
-            // this.cloud = new Cloud()
+            this.gantry = new Gantry()
+            this.hsu = new HSU()
+            this.z2 = new Z2()
             this.environment = new Environment()
         })
     }
@@ -36,8 +40,8 @@ export default class World
             this.lander.update()   
         }
 
-        if(this.moon) {
-            this.moon.update() 
+        if(this.z2) {
+            this.z2.update() 
         }
     }
 }

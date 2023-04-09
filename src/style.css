@@ -99,3 +99,17 @@ section:nth-child(odd)
 .loading-text.ended{
     display: none;
 }
+
+.moonButton{
+    text-decoration: none;
+    color: white;
+    background-color: #0000007c;
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 5%;
+}
+
+.moonButton:hover{
+    border: 2px solid white;
+    background-color: black;
+}

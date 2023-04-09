@@ -28,9 +28,9 @@ export default class Sev
     setModel()
     {
         this.model = this.resource.scene
-        this.model.scale.set(0.3, 0.3, 0.3)
-        this.model.position.set(-1.6, -19.4, -9.5)
-        this.model.rotation.set(0, 5.75, 0)
+        this.model.scale.set(0.2, 0.2, 0.2)
+        this.model.position.set(-0.6, -19.4, -10)
+        this.model.rotation.set(0, 1.4, 0)
         this.scene.add(this.model)
 
         this.model.traverse((child) => 

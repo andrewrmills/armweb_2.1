@@ -103,7 +103,9 @@ export default class Lander
         {
             this.params.rotationSpeed = 0.0002
         }
+
         this.moveModel()
+
 
     }
 }

@@ -30,7 +30,7 @@ export default class Moon
     {
         this.model = this.resource.scene
         this.model.scale.set(11, 11, 10)
-        this.model.position.set(-1.8, -46.3, -10)
+        this.model.position.set(-1.8, -47.5, -10)
         this.model.rotation.set(2, -3, 1)
         this.scene.add(this.model)
 
@@ -76,7 +76,7 @@ export default class Moon
         this.debugFolder
         .add(this.model.position, 'y')
         .name('moonPositionY')
-        .min(-50)
+        .min(-55)
         .max(50)
         .step(0.01)
 

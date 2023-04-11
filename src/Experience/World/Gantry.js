@@ -34,6 +34,15 @@ export default class Gantry
         this.model.scale.set(0.5, 0.5, 0.5)
         this.scene.add(this.model)
 
+        this.model.traverse((child) => 
+        {
+            if(child instanceof THREE.Mesh)
+            {
+                child.castShadow = true
+                child.receiveShadow = true
+            }
+        })
+
         if(this.debug.active)
         {
             this.debugFolder

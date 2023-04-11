@@ -33,15 +33,6 @@ export default class Sev
         this.model.rotation.set(0, 1.4, 0)
         this.scene.add(this.model)
 
-        this.model.traverse((child) => 
-        {
-            if(child instanceof THREE.Mesh)
-            {
-                child.castShadow = true
-                child.material.side = THREE.DoubleSide
-            }
-        })
-
         // Debug
         if(this.debug.active)
         {
